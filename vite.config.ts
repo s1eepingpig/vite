@@ -1,9 +1,10 @@
-import {ConfigEnv, defineConfig} from 'vite'
+import {ConfigEnv, defineConfig, loadEnv} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import * as path from 'path'
 // @ts-ignore
 import alias from "./vite/alias";
-
+// @ts-ignore
+import {parseEnv} from "./vite/utils";
 // https://vitejs.dev/config/
 // export default defineConfig({
 //   plugins: [vue()],
@@ -14,7 +15,14 @@ import alias from "./vite/alias";
 //   }
 // })
 
+//这里的command是比如serve，build这种，mode是指dev还是prod
+
+
 export default ({command, mode}:ConfigEnv)=>{
+  const isBuild = command=="build"
+  const root = process.cwd()
+  const env = loadEnv(mode, root)
+  parseEnv({command, mode})
   return{
     plugins:[vue()],
     resolve:{
