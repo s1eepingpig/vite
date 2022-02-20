@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+console.log(import.meta.env)
 </script>
 
 <template>
@@ -9,7 +9,7 @@
   <li>商品</li>
   <li>评价</li>
 </ul>
-<router-view></router-view> 
+<router-view></router-view>
 <!-- //来源于routerview -->
 </template>
 

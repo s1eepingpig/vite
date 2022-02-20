@@ -33,7 +33,7 @@ function getRouteByModule(file:string, module:{[key:string]:any}){
         name:name.replace('/', '.'),
         component:module.default
     } as RouteRecordRaw
-    
+
     return Object.assign(route, module.default?.route)
 }
 
@@ -48,7 +48,7 @@ function getChildrenRoutes(layoutRoutes:RouteRecordRaw){
             // console.log(file)
         }
     })
-    console.log(routes)
+    // console.log(routes)
     return routes
 }
 
@@ -64,11 +64,11 @@ function getChildrenRoutes(layoutRoutes:RouteRecordRaw){
 // })
 
 // const name = function getRouteByModule(file:string, module:{[key: string] : any}){
-    
+
 //         if(file){
 //             return console.log(file.split('/').pop()?.split('.')[0])
 //         }
-        
+
 // }
 
 export default getRoutes()
