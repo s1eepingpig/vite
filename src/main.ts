@@ -2,13 +2,13 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 import router, {setupRouter} from '@/routers'
-
+import {setupPlugins} from "@/plugins";
 
 
 const app = createApp(App)
 //具名导出方式如下
 setupRouter(app)
-
+setupPlugins(app)
 //use的挂载方式对应默认导出
 app.use(router)
 app.mount('#app')

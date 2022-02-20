@@ -1,10 +1,9 @@
 import {ConfigEnv, defineConfig, loadEnv} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import * as path from 'path'
-// @ts-ignore
 import alias from "./vite/alias";
-// @ts-ignore
 import {parseEnv} from "./vite/utils";
+import setupPlugin from "./vite/plugins";
 // https://vitejs.dev/config/
 // export default defineConfig({
 //   plugins: [vue()],
@@ -21,10 +20,11 @@ import {parseEnv} from "./vite/utils";
 export default ({command, mode}:ConfigEnv)=>{
   const isBuild = command=="build"
   const root = process.cwd()
-  const env = loadEnv(mode, root)
-  parseEnv({command, mode})
+  const env = parseEnv(loadEnv(mode, root))
+  // parseEnv({command, mode})
   return{
-    plugins:[vue()],
+    // plugins:[vue()],
+    plugins:setupPlugin(isBuild, env),
     resolve:{
       alias
     }

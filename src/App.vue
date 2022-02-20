@@ -1,10 +1,10 @@
 <script setup lang="ts">
-console.log(import.meta.env)
 </script>
 
 <template>
 <!-- 我超快捷键nb ul>li*3 -->
-<ul>
+<ul class="bg-red-100">
+
   <li>首页</li>
   <li>商品</li>
   <li>评价</li>
