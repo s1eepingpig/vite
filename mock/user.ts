@@ -3,7 +3,7 @@ export default [
     {
         url: '/api/get',
         method: 'get',
-        response: ({ query:any }) => {
+        response: ({ query }) => {
             return {
                 code: 0,
                 data: {

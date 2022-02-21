@@ -1,7 +1,16 @@
 // @ts-ignore
 import _ from 'lodash'
-export function parseEnv(env:Record<string, string>){
-const envs = _.cloneDeep(env)
+
+export interface ViteEnv {
+
+    VITE_API_KEY:number
+    VITE_ROUTE_AUTOLOAD:boolean
+    VITE_API_URL:string
+}
+
+
+export function parseEnv(env:Record<string, string>):ViteEnv{
+const envs:any = _.cloneDeep(env)
     Object.entries(env).forEach(([key,value])=>{
         if(value =="true"||value=="false"){
             // @ts-ignore
