@@ -1,6 +1,8 @@
 // @ts-ignore
 import _ from 'lodash'
 
+
+
 export interface ViteEnv {
 
     VITE_API_KEY:number
