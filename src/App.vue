@@ -1,5 +1,9 @@
 <script setup lang="ts">
-console.log(import.meta.env)
+import helper from "../vite/helper";
+
+console.log(typeof import.meta.env.VITE_ROUTE_AUTOLOAD)
+console.log( import.meta.env.VITE_ROUTE_AUTOLOAD)
+console.log(helper.env.VITE_ROUTE_AUTOLOAD)
 </script>
 
 <template>
