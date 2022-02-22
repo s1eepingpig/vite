@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import helper from "../vite/helper";
+import {Axios} from "axios";
+import userAPIs from "@/apis/userAPIs";
 
-console.log(typeof import.meta.env.VITE_ROUTE_AUTOLOAD)
-console.log( import.meta.env.VITE_ROUTE_AUTOLOAD)
-console.log(helper.env.VITE_ROUTE_AUTOLOAD)
+const  response = await userAPIs.info()
+console.log(response)
 </script>
 
 <template>
-<!-- 我超快捷键nb ul>li*3 -->
+<!-- 快捷键nb ul>li*3 -->
 <ul class="bg-red-100">
 
   <li>首页</li>

@@ -8,8 +8,8 @@ class Axios {
         this.interceptors()
     }
 
-    private request<T>() {
-        this.instance.request<ResponseResult<T>>()
+    request<T>(config:AxiosRequestConfig) {
+       return  this.instance.request<T>(config)
     }
 
     private interceptors() {
@@ -41,3 +41,5 @@ class Axios {
 
     }
 }
+
+export default Axios
