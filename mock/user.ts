@@ -3,6 +3,7 @@ export default [
     {
         url: '/api/info',
         method: 'get',
+        //@ts-ignore
         response: ({ query }) => {
             return {
                 code: 0,
