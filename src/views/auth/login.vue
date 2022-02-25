@@ -18,10 +18,11 @@ const form = reactive<{account:string, password:string}>({
     <div class="p-7">
       <h2 class=" text-center text-lg  text-gray-600"> Log in</h2>
       <div class="mt-5">
-        <fm-input v-model="form.account" placeholder="plz input"/>
+        {{form}}
+        <fm-input v-model="form.account"  />
 <!--        <input type="text" placeholder="Please input your username" class="hd-input"/>-->
 <!--        <input type="password" placeholder="Please input your password" class="hd-input mt-3"/>-->
-        <fm-input type="password" v-model="form.password" placeholder="Plz input your password"/>
+        <fm-input  v-model="form.password" placeholder="Plz input your password"/>
         <button class="bg-indigo-700 text-white w-full py-3 mt-3">Log in</button>
       </div>
     </div>

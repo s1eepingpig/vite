@@ -7,7 +7,8 @@ const props = defineProps({
 // 但是需要在<script 中添加lang="ts" 和添加setup 关键字，另外，变量名也要符合传参的名字。
 </script>
 <template>
-  <input type="text" :value="this.props.modelValue"/>
+<!--  用$event来触法及时更新表单内容-->
+  <input type="text" :value="this.props.modelValue" @input="$emit('update:modelValue', $event.target.value)"/>
   <div></div>
 </template>
 <style scoped>
