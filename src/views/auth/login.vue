@@ -1,8 +1,14 @@
 
 
 <script setup lang="ts">
+import {reactive} from "vue";
+import FmInput from "@/components/fm-input.vue";
 
-import HelloWorld from "@/components/HelloWorld.vue";
+const form = reactive<{account:string, password:string}>({
+  account:"123",
+  password:"123",
+})
+
 </script>
 <template>
 <div class="bg-slate-300 h-screen flex justify-center items-center ">
@@ -12,9 +18,10 @@ import HelloWorld from "@/components/HelloWorld.vue";
     <div class="p-7">
       <h2 class=" text-center text-lg  text-gray-600"> Log in</h2>
       <div class="mt-5">
-        <hello-world></hello-world>
-        <input type="text" placeholder="Please input your username" class="hd-input"/>
-        <input type="password" placeholder="Please input your password" class="hd-input mt-3"/>
+        <fm-input v-model="form.account" placeholder="plz input"/>
+<!--        <input type="text" placeholder="Please input your username" class="hd-input"/>-->
+<!--        <input type="password" placeholder="Please input your password" class="hd-input mt-3"/>-->
+        <fm-input type="password" v-model="form.password" placeholder="Plz input your password"/>
         <button class="bg-indigo-700 text-white w-full py-3 mt-3">Log in</button>
       </div>
     </div>
