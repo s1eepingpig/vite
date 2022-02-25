@@ -8,6 +8,7 @@ const props = defineProps({
 </script>
 <template>
 <!--  用$event来触法及时更新表单内容-->
+
   <input type="text" :value="this.props.modelValue" @input="$emit('update:modelValue', $event.target.value)"/>
   <div></div>
 </template>
