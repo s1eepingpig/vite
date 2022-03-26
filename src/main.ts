@@ -6,6 +6,7 @@ import {setupPlugins} from "@/plugins";
 
 
 const app = createApp(App)
+
 //具名导出方式如下
 setupRouter(app)
 setupPlugins(app)
