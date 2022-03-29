@@ -18,25 +18,32 @@
 </template>
 
 <script setup lang="ts">
-import {Field, defineRule, useField, ErrorMessage, useForm} from "vee-validate";
+// import {Field, defineRule, useField, ErrorMessage, useForm} from "vee-validate";
 import {email, required} from "@vee-validate/rules";
+import v from "@/plugins/validate"
+// import{ f } from "@/plugins/validate/index"
+// @ts-ignore
+// import * as yup from "yup"
+//
+// defineRule('email', email)
+// defineRule('required', required)
 
-defineRule('email', email)
-defineRule('required', required)
-
-const {handleSubmit} = useForm({
+const {handleSubmit} = v.useForm({
   initialValues: {
     username: '111',
     password: "123456"
   },
   validationSchema: {
-    username: {required: true, email: true}
-    , password: {required: true}
+    // username: {required: true, email: true} //vee 用法
+    username: v.yup.string().required("cannot be valid").email(), //yup 用法
+    // , password: {required: true}
+    password:v.yup.string().required("cannot be valid")
+
   }
 })
 
-const {errorMessage: username, value: usernameValue} = useField("username", {})
-const {value:passwordValue, errorMessage:password} = useField("password", {})
+const {errorMessage: username, value: usernameValue} = v.useField("username", {})
+const {value:passwordValue, errorMessage:password} = v.useField("password", {})
 
 const onSubmit = handleSubmit((values) => {
   console.log(values)
