@@ -9,12 +9,14 @@ import * as yup from "yup";
 import userAPIs from "@/apis/userAPIs";
 import {values} from "lodash";
 import store from "@/utils/store";
+import {useRouter} from "vue-router";
 // const form = reactive<{account:string, password:string}>({
 //   account:"123",
 //   password:"123",
 // // })
 const{errorMessage:accountError, value:account} = useField("account", {})
 const{errorMessage:passwordError, value:password} = useField("password", {})
+const useRoute = useRouter()
 const {handleSubmit} = useForm({
   initialValues:{
     account:"123@qq.com",
@@ -28,17 +30,28 @@ const {handleSubmit} = useForm({
 
 const onSubmit =  handleSubmit(async(values) => {
 
-  const result  = await userAPIs.login(values)
-  store.set('token',{
-    expire:100, result
+  const result  = await userAPIs.login(values).then((result)=>{
+    const token = "134567"
+    store.set('token',{
+      expire:7, token
+    })
+    console.log(result.data)
+    // 这里光用/home不可以，必须中括号中name
+    useRoute.push({name:"home"})
+  }).catch(e=>{
+    console.log(e)
   })
-  console.log(result.data)
+
+
 })
 
 // const onSubmit = async (values)=>{
 //   const{result:{token}} = await userAPIs.login(values)
 //   console.log(token)
 // }
+</script>
+<script lang="ts">
+// export default
 </script>
 <template>
   <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.1.1/css/all.css" rel="stylesheet">

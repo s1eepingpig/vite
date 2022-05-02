@@ -2,7 +2,7 @@
 
 import FmInput from "@/components/fm-input.vue";
 import axios from "axios";
-let isGoogle = false
+
 // waitForSuccessfulPing()
 // async function waitForSuccessfulPing(ms = 1000) {
 //   const config = {
@@ -36,11 +36,15 @@ let isGoogle = false
   <h2>主页home.vue</h2>
   <div>
     <input placeholder=" input " class="justify-center bg-amber-400">
-    <fm-input placeholder="Search"> </fm-input>
-    <button onclick=""> Search </button>
+    <fm-input placeholder="Search"></fm-input>
+    <button onclick=""> Search</button>
   </div>
 </template>
-
+<script lang="ts">
+export default {
+  route: {name: "home"}
+}
+</script>
 
 <style lang="scss">
 

@@ -3,6 +3,7 @@ import App from './App.vue'
 
 import router, {setupRouter} from '@/routers'
 import {setupPlugins} from "@/plugins";
+import guard from "@/routers/guard";
 
 
 const app = createApp(App)
@@ -11,7 +12,8 @@ const app = createApp(App)
 setupRouter(app)
 setupPlugins(app)
 //use的挂载方式对应默认导出
-app.use(router)
+
+// app.use(router)
 app.mount('#app')
 
 //另外一种异步挂载的方式
