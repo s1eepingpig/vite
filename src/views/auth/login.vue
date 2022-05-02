@@ -8,6 +8,7 @@ import {required, email} from "@vee-validate/rules";
 import * as yup from "yup";
 import userAPIs from "@/apis/userAPIs";
 import {values} from "lodash";
+import store from "@/utils/store";
 // const form = reactive<{account:string, password:string}>({
 //   account:"123",
 //   password:"123",
@@ -26,7 +27,11 @@ const {handleSubmit} = useForm({
 })
 
 const onSubmit =  handleSubmit(async(values) => {
+
   const result  = await userAPIs.login(values)
+  store.set('token',{
+    expire:100, result
+  })
   console.log(result.data)
 })
 
