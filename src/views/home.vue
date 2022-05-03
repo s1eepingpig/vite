@@ -38,6 +38,10 @@ import axios from "axios";
     <input placeholder=" input " class="justify-center bg-amber-400">
     <fm-input placeholder="Search"></fm-input>
     <button onclick=""> Search</button>
+    <div>
+      <router-link :to="{name:'login'}" class="bg-blend-color-burn">login</router-link>
+      <router-link :to="{name:'user'}" class="bg-blend-color-burn">user</router-link>
+    </div>
   </div>
 </template>
 <script lang="ts">

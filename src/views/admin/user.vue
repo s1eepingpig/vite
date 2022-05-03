@@ -11,6 +11,6 @@
 </style>
 <script lang="ts">
 export default {
-  route: {meta: {auth: true}}
+  route: {name: "user", meta: {auth: true}}
 }
 </script>
