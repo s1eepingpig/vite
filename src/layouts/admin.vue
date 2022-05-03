@@ -24,6 +24,7 @@ const menus = ref<Menu[]>([{
     active:true
   }]
 },
+
   {title: '404',
     child: [{
       title: "404child1",
