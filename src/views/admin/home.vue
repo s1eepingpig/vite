@@ -4,8 +4,10 @@
 </script>
 
 <template>
-  <h1>Home
-  </h1>
+  <div class="w-screen h-full">
+    <h1>Home</h1>
+  </div>
+
 </template>
 
 <script lang="ts">

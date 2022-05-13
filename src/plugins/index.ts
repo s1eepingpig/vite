@@ -2,10 +2,12 @@
 import {App} from "vue";
 import {setupTailwindcss} from "@/plugins/tailwindcss";
 import {keys} from "lodash";
+import setupElementPlus from "@/plugins/elementplus";
 
 export function setupPlugins(app:App){
     setupTailwindcss()
     autoLoadComponents(app)
+    setupElementPlus(app);
 }
 
 
